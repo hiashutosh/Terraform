@@ -26,11 +26,11 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.2.0"
 
-  name                 = "k8s-vpc"
+  name                 = "terraform-vpc"
   cidr                 = "172.33.0.0/16"
-  azs                  = data.aws_availability_zones.available.names
+  azs                  = ["eu-east-2a", "eu-east-2b", "eu-east-2c"]
   enable_nat_gateway   = true
-  single_nat_gateway   = true
+  single_nat_gateway   = false
   enable_dns_hostnames = true
 
 
